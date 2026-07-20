@@ -1,17 +1,17 @@
 // Base URL for all API calls
-const API = 'http://localhost:3000/tasks';
+const API = 'https://taskflow-ap1b.onrender.com/tasks';
 
 // ── DOM References ────────────────────────────────────────────────────────────
-const form      = document.getElementById('task-form');
-const input     = document.getElementById('task-input');
-const taskList  = document.getElementById('task-list');
-const emptyMsg  = document.getElementById('empty-msg');
+const form = document.getElementById('task-form');
+const input = document.getElementById('task-input');
+const taskList = document.getElementById('task-list');
+const emptyMsg = document.getElementById('empty-msg');
 
 // ── Fetch all tasks and render them ──────────────────────────────────────────
 // Called on page load and after every mutating action so the UI stays in sync.
 async function loadTasks() {
   try {
-    const res   = await fetch(API);
+    const res = await fetch(API);
     const tasks = await res.json();
     renderTasks(tasks);
   } catch (err) {
@@ -61,9 +61,9 @@ function renderTasks(tasks) {
 async function addTask(title) {
   try {
     await fetch(API, {
-      method:  'POST',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ title }),
+      body: JSON.stringify({ title }),
     });
     await loadTasks(); // re-render after adding
   } catch (err) {
@@ -76,9 +76,9 @@ async function addTask(title) {
 async function toggleTask(id, currentDone) {
   try {
     await fetch(`${API}/${id}`, {
-      method:  'PUT',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ done: !currentDone }),
+      body: JSON.stringify({ done: !currentDone }),
     });
     await loadTasks(); // re-render after toggling
   } catch (err) {
