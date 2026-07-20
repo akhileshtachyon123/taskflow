@@ -1,6 +1,12 @@
 const express = require('express');
+const cors    = require('cors');
 const app = express();
 const PORT = 3000;
+
+// Allow requests from any origin (including file://) during local development.
+// The cors package automatically sets the Access-Control-Allow-Origin header
+// so the browser stops blocking cross-origin fetch calls.
+app.use(cors());
 
 app.use(express.json());
 

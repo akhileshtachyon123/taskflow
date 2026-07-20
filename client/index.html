@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TaskFlow – a simple task manager to add, complete, and delete your tasks." />
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="card">
+    <h1>📋 TaskFlow</h1>
+
+    <!-- Form to add a new task -->
+    <form id="task-form">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="What needs to be done?"
+        autocomplete="off"
+        required
+      />
+      <button type="submit" id="add-btn">Add Task</button>
+    </form>
+
+    <!-- Task list rendered by script.js -->
+    <ul id="task-list"></ul>
+
+    <!-- Empty state shown when there are no tasks -->
+    <p id="empty-msg" class="empty-msg hidden">No tasks yet — add one above!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
